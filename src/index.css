@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 42 52% 44%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 42 52% 44%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 42 52% 44% / 0.3;
+    --input: 42 20% 80%;
+    --ring: 42 52% 44%;
+    --radius: 0.25rem;
+
+    --gold: 42 52% 44%;
+    --gold-light: 42 62% 55%;
+    --dark: 0 0% 0%;
+    --dark-alt: 0 0% 6%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-size: 16px;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gold-divider {
+    @apply border-accent/25;
+  }
+  .mf-eyebrow {
+    @apply font-body text-[12px] tracking-[0.25em] uppercase text-gold;
+  }
+  .mf-title {
+    @apply font-heading font-black uppercase tracking-tight leading-[0.95];
+  }
+  .mf-btn {
+    @apply inline-flex items-center justify-center px-7 py-3 border border-foreground text-foreground font-heading font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-foreground hover:text-dark;
+  }
+  .mf-btn-gold {
+    @apply inline-flex items-center justify-center px-7 py-3 border border-gold text-gold font-heading font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-gold hover:text-dark;
+  }
+  .mf-link {
+    @apply font-heading font-semibold text-xs tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground transition-colors;
+  }
+}
+
+@layer utilities {
+  /* Content-protection deterrents (casual users only) */
+  img, video {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+  .protected-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: transparent;
+    pointer-events: auto;
+  }
+}
+
